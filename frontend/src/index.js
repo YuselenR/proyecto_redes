@@ -12,5 +12,5 @@ const color =
 
 localStorage.setItem("themeColor", color);
 
-require("./assets/css/sass/themes/gogo." + color + ".scss");
+require("./assets/css/sass/themes/irodu." + color + ".scss");
 require("./AppRenderer");

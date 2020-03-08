@@ -14,11 +14,13 @@ const MessageCard = ({ sender, item, currentUserid }) => {
         </div>
         <CardBody>
           <div className="d-flex flex-row pb-1">
-            <img
-              alt={sender.name}
-              src={sender.thumb}
-              className="img-thumbnail border-0 rounded-circle mr-3 list-thumbnail align-self-center xsmall"
-            />
+            { sender.thumb ?  
+              <img
+                alt={sender.name}
+                src={sender.thumb}
+                className="img-thumbnail border-0 rounded-circle mr-3 list-thumbnail align-self-center xsmall"
+              />: null
+            }
             <div className=" d-flex flex-grow-1 min-width-zero">
               <div className="m-2 pl-0 align-self-center d-flex flex-column flex-lg-row justify-content-between min-width-zero">
                 <div className="min-width-zero">
@@ -30,7 +32,7 @@ const MessageCard = ({ sender, item, currentUserid }) => {
             </div>
           </div>
 
-          <div className="chat-text-left">
+          <div className={ sender.thumb ? "chat-text-left" : "p-1"}>
             <p className="mb-0 text-semi-muted">{item.text}</p>
           </div>
         </CardBody>

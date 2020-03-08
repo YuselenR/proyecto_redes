@@ -18,7 +18,7 @@ const Cakes = () => {
               {data.slice(0, 12).map((c, index) => {
                 return (
                   <li key={index} className="mb-1">
-                    <NavLink to={c.link}>{c.title}</NavLink>
+                    <NavLink to="#">{c.title}</NavLink>
                   </li>
                 );
               })}
@@ -30,7 +30,7 @@ const Cakes = () => {
               {data.slice(12, 24).map((c, index) => {
                 return (
                   <li key={index} className="mb-1">
-                    <NavLink to={c.link}>{c.title}</NavLink>
+                    <NavLink to="#">{c.title}</NavLink>
                   </li>
                 );
               })}

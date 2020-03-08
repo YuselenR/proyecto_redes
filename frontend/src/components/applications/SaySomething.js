@@ -21,9 +21,6 @@ class SaySomething extends Component {
           onChange={e => handleChatInputChange(e)}
         />
         <div>
-          <Button outline color="primary" className="icon-button large ml-1">
-            <i className="simple-icon-paper-clip" />
-          </Button>
 
           <Button
             color="primary"

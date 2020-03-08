@@ -25,11 +25,6 @@ const data = [
     to: "/app/applications",
     subs: [
       {
-        icon: "simple-icon-check",
-        label: "menu.todo",
-        to: "/app/applications/todo"
-      },
-      {
         icon: "simple-icon-bubbles",
         label: "menu.chat",
         to: "/app/applications/chat"

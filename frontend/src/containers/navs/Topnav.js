@@ -13,7 +13,6 @@ import { connect } from "react-redux";
 import {
   setContainerClassnames,
   clickOnMobileMenu,
-  logoutUser,
   changeLocale
 } from "../../redux/actions";
 
@@ -79,7 +78,7 @@ class TopNav extends Component {
         </div>
 
         <a className="navbar-logo" href="/">
-          <span className="logo d-none d-xs-block" />
+          <span className="logo-page logo d-none d-xs-block" />
           <span className="logo-mobile d-block d-xs-none" />
         </a>
 
@@ -108,6 +107,7 @@ const mapStateToProps = ({ menu, settings }) => {
 export default injectIntl(
   connect(
     mapStateToProps,
-    { setContainerClassnames, clickOnMobileMenu, logoutUser, changeLocale }
+    { setContainerClassnames, clickOnMobileMenu
+      , changeLocale }
   )(TopNav)
 );

@@ -10,12 +10,13 @@ import {
   getContacts,
   getConversations,
   changeConversation,
-  addMessageToConversation
+  addMessageToConversation,
+  getDefaultQuestions
 } from "../../../redux/actions";
-import ChatApplicationMenu from "../../../containers/applications/ChatApplicationMenu";
 import ChatHeading from "../../../components/applications/ChatHeading";
 import MessageCard from "../../../components/applications/MessageCard";
 import SaySomething from "../../../components/applications/SaySomething";
+import QuestionCard from "../../../components/applications/QuestionCard";
 
 class ChatApp extends Component {
   constructor(props) {
@@ -30,6 +31,13 @@ class ChatApp extends Component {
     const currentUserId = 0;
     this.props.getContacts();
     this.props.getConversations(currentUserId);
+    
+    /*this.props.getDefaultQuestions(
+      currentUserId,
+      currentUserId,
+      this.props.chatApp.conversations
+    );*/
+
   }
 
   componentDidUpdate() {
@@ -38,7 +46,7 @@ class ChatApp extends Component {
       this.props.chatApp.loadingContacts &&
       this.props.chatApp.selectedUser == null
     ) {
-      this.props.changeConversation(this.props.chatApp.selectedUserId);
+      this.props.changeConversation(1);
     }
 
     if (this._scrollBarRef) {
@@ -53,7 +61,9 @@ class ChatApp extends Component {
           this.props.chatApp.currentUser.id,
           this.props.chatApp.selectedUser.id,
           this.state.messageInput,
-          this.props.chatApp.conversations
+          this.props.chatApp.conversations,
+          null, 
+          this.props.chatApp.allArticles
         );
         this.setState({
           messageInput: "",
@@ -75,7 +85,9 @@ class ChatApp extends Component {
         this.props.chatApp.currentUser.id,
         this.props.chatApp.selectedUser.id,
         this.state.messageInput,
-        this.props.chatApp.conversations
+        this.props.chatApp.conversations,
+        null,
+        this.props.chatApp.allArticles
       );
       this.setState({
         messageInput: "",
@@ -97,7 +109,10 @@ class ChatApp extends Component {
       loadingConversations,
       loadingContacts,
       currentUser,
-      selectedUser
+      selectedUser,
+      loadingDefaultQuestions,
+      defaultQuestions,
+      articles
     } = this.props.chatApp;
 
     const { menuActiveTab, messageInput } = this.state;
@@ -111,6 +126,8 @@ class ChatApp extends Component {
               x.users.includes(selectedUser.id)
           )
         : null;
+
+      //console.log({loadingConversations, loadingContacts})
     return loadingConversations && loadingContacts ? (
       <Fragment>
         <Row className="app-row">
@@ -133,6 +150,19 @@ class ChatApp extends Component {
               >
                 {selectedConversation.messages.map((item, index) => {
                   const sender = allContacts.find(x => x.id === item.sender);
+
+                  if(item.id){
+                    return(
+                      <QuestionCard
+                        key = {index}
+                        sender = {sender}
+                        question = {item}
+                        currentUserid={currentUser.id}
+                      />
+                    )
+  
+                  }
+
                   return (
                     <MessageCard
                       key={index}
@@ -142,6 +172,24 @@ class ChatApp extends Component {
                     />
                   );
                 })}
+                {defaultQuestions.map( (question,index) => {
+                  let sender;
+                  selectedConversation.messages.map((item) => {
+                      sender = allContacts.find(x => x.id === item.sender);
+                  });
+
+                  return(
+                    <QuestionCard
+                      key = {index}
+                      sender = {sender}
+                      question = {question}
+                      currentUserid={currentUser.id}
+                    />
+                  )
+
+                })}
+
+
               </PerfectScrollbar>
             )}
           </Colxx>
@@ -153,10 +201,6 @@ class ChatApp extends Component {
           handleChatInputChange={this.handleChatInputChange}
           handleSendButtonClick={this.handleSendButtonClick}
         />
-        <ChatApplicationMenu
-          activeTab={menuActiveTab}
-          toggleAppMenu={this.toggleAppMenu}
-        />
       </Fragment>
     ) : (
       <div className="loading" />
@@ -167,6 +211,7 @@ class ChatApp extends Component {
 const mapStateToProps = ({ chatApp }) => {
   return { chatApp };
 };
+
 export default injectIntl(
   connect(
     mapStateToProps,
@@ -174,7 +219,9 @@ export default injectIntl(
       getContacts,
       getConversations,
       changeConversation,
-      addMessageToConversation
+      addMessageToConversation,
+      getDefaultQuestions
     }
   )(ChatApp)
 );
+

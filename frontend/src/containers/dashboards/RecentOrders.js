@@ -26,7 +26,7 @@ export default function RecentOrders() {
               return (
                 <div key={index} className="d-flex flex-row mb-3">
                   <NavLink
-                    to="/app/pages/details"
+                    to="#"
                     className="d-block position-relative"
                   >
                     <img
@@ -45,7 +45,7 @@ export default function RecentOrders() {
                   </NavLink>
 
                   <div className="pl-3 pt-2 pr-2 pb-2">
-                    <NavLink to="/app/pages/details">
+                    <NavLink to="#">
                       <p className="list-item-heading">{order.title}</p>
                       <div className="pr-4">
                         <p className="text-muted mb-1 text-small">

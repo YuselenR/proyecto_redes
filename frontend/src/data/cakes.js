@@ -1,42 +1,42 @@
 const cakes = [
   {
-    title: 'Marble Cake',
+    title: 'Torta Marmoleada',
     link: '/app/pages/details'
   },
   {
-    title: 'Fruitcake',
+    title: 'Torta de frutas',
     link: '/app/pages/details'
   },
   {
-    title: 'Chocolate Cake',
+    title: 'Torta de chocolate',
     link: '/app/pages/details'
   },
   {
-    title: 'Fat Rascal',
+    title: 'Pancakes',
     link: '/app/pages/details'
   },
   {
-    title: 'Financier',
+    title: 'torta de crema',
     link: '/app/pages/details'
   },
   {
-    title: 'Genoise',
+    title: 'Torta chocolate con queso',
     link: '/app/pages/details'
   },
   {
-    title: 'Gingerbread',
+    title: 'Torta de queso con frutas y menta',
     link: '/app/pages/details'
   },
   {
-    title: 'Goose Breast',
+    title: 'Red velvet de frutas ',
     link: '/app/pages/details'
   },
   {
-    title: 'Parkin',
+    title: 'Torta vegana',
     link: '/app/pages/details'
   },
   {
-    title: 'Salzburger Nockerl',
+    title: 'Torta de yogurt',
     link: '/app/pages/details'
   },
   {
@@ -44,23 +44,23 @@ const cakes = [
     link: '/app/pages/details'
   },
   {
-    title: 'Merveilleux',
+    title: 'Pastel de donas',
     link: '/app/pages/details'
   },
   {
-    title: 'Streuselkuchen',
+    title: 'Torta de queson con frutas y menta',
     link: '/app/pages/details'
   },
   {
-    title: 'Tea Loaf',
+    title: 'Torta de queson con frutas y menta',
     link: '/app/pages/details'
   },
   {
-    title: 'Napoleonshat',
+    title: 'Pastel de Navidad',
     link: '/app/pages/details'
   },
   {
-    title: 'Merveilleux',
+    title: 'Pastel de chocolate blanco',
     link: '/app/pages/details'
   },
   {
@@ -68,31 +68,31 @@ const cakes = [
     link: '/app/pages/details'
   },
   {
-    title: 'Cremeschnitte',
+    title: 'Volcan de Chocolate de frutas',
     link: '/app/pages/details'
   },
   {
-    title: 'Cheesecake',
+    title: 'Torta de queso',
     link: '/app/pages/details'
   },
   {
-    title: 'Bebinca',
+    title: 'Red velvet de frutas',
     link: '/app/pages/details'
   },
   {
-    title: 'Fruitcake',
+    title: 'Torta de Frutas',
     link: '/app/pages/details'
   },
   {
-    title: 'Chocolate Cake',
+    title: 'Torta de Chocolate',
     link: '/app/pages/details'
   },
   {
-    title: 'Fat Rascal',
+    title: 'Pancakes',
     link: '/app/pages/details'
   },
   {
-    title: 'Streuselkuchen',
+    title: 'Pastel de bodas',
     link: '/app/pages/details'
   }
 ]

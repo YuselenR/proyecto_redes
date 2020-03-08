@@ -55,7 +55,7 @@ module.exports = {
   /* 03.Menu */
   "menu.app": "Home",
   "menu.dashboards": "Dashboards",
-  "menu.default": "Default",
+  "menu.default": "Start",
   "menu.analytics": "Analytics",
   "menu.ecommerce": "Ecommerce",
   "menu.content": "Content",

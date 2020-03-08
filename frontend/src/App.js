@@ -7,30 +7,21 @@ import {
   Redirect
 } from "react-router-dom";
 import { IntlProvider } from "react-intl";
-import "./helpers/Firebase";
 import AppLocale from "./lang";
 import ColorSwitcher from "./components/common/ColorSwitcher";
 import NotificationContainer from "./components/common/react-notifications/NotificationContainer";
 import { isMultiColorActive } from "./constants/defaultValues";
 import main from "./views";
 import app from "./views/app";
-import user from "./views/user";
 import error from "./views/error";
 
 const AuthRoute = ({ component: Component, authUser, ...rest }) => (
   <Route
     {...rest}
     render={props =>
-      authUser ? (
+     (
         <Component {...props} />
-      ) : (
-        <Redirect
-          to={{
-            pathname: "/user/login",
-            state: { from: props.location }
-          }}
-        />
-      )
+      ) 
     }
   />
 );
@@ -51,8 +42,7 @@ class App extends Component {
             {isMultiColorActive && <ColorSwitcher />}
             <Router>
               <Switch>
-                <AuthRoute path="/app" authUser={loginUser} component={app} />
-                <Route path="/user" component={user} />
+                <AuthRoute path="/app" component={app} />
                 <Route path="/error" exact component={error} />
                 <Route path="/" exact component={main} />
                 <Redirect to="/error" />
@@ -65,10 +55,9 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ authUser, settings }) => {
-  const { user: loginUser } = authUser;
+const mapStateToProps = ({  settings }) => {
   const { locale } = settings;
-  return { loginUser, locale };
+  return { locale };
 };
 const mapActionsToProps = {};
 
